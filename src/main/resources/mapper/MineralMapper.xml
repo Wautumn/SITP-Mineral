@@ -1,3 +1,59 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
-<properties/>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.MineralDAO">
+    <resultMap id="BaseResultMap" type="com.example.demo.entity.Mineral">
+
+        <id column="ID" jdbcType="VARCHAR" property="trainnumber" />
+        <result column="NAME" jdbcType="NUMERIC" property="stationorder" />
+        <result column="TYPE" jdbcType="VARCHAR" property="station" />
+        <result column="INTRODUCTION" jdbcType="TIMESTAMP" property="arrivetime" />
+        <result column="COLOR" jdbcType="TIMESTAMP" property="leavetime" />
+        <result column="JIELI" jdbcType="NUMERIC" property="duration" />
+        <result column="TUQI" jdbcType="NUMERIC" property="duration" />
+        <result column="COLORGANSHE" jdbcType="TIMESTAMP" property="leavetime" />
+        <result column="XIAOGUANG" jdbcType="NUMERIC" property="duration" />
+        <result column="JIELI" jdbcType="NUMERIC" property="duration" />
+    </resultMap>
+    <!-- public List<Time> findTrain(Date date, String start, String arrive)-->
+    <select id="findTrain" resultType="com.company.project.model.TrainResult" >
+        select a.TRAINNUMBER, a.STATIONORDER, a.STATION as startstation, b.station as arrivestation, a.TRAINDATE, b.ARRIVETIME, a.LEAVETIME, a.REMAININGSEAT, a.DURATION , a.STATIONORDER as startorder, b.STATIONORDER as arriveorder from (select s.trainnumber,s.stationorder,s.remainingseat,s.traindate,t.station,t.arrivetime,t.leavetime,t.duration  from seatting s join time t on (s.trainnumber=t.trainnumber and t.stationorder=s.stationorder) ) a, (select s.trainnumber,s.stationorder,s.remainingseat,s.traindate,t.station,t.arrivetime,t.leavetime,t.duration  from seatting s join time t on (s.trainnumber=t.trainnumber and t.stationorder=s.stationorder) ) b where a.TRAINNUMBER = b.TRAINNUMBER and a.STATION = #{start} and b.STATION = #{arrive} and a.TRAINDATE = #{date} and b.TRAINDATE = #{date} and a.STATIONORDER &lt; b.STATIONORDER
+  </select>
+
+    <!-- public int findDuration(String trainnumber, int stationorder)-->
+    <select id="findDuration" resultType="int" >
+        select DURATION
+        from Time
+        where TRAINNUMBER = #{trainnumber} and STATIONORDER = #{stationorder}
+  </select>
+
+    <!-- public List<Time> findTrainEasy(Date date, String start, String arrive)-->
+    <select id="findTrainEasy" resultType="com.company.project.model.TrainResult" >
+        select s.STARTORDER as startstation , s.ENDORDER as arrivestation, s.TRAINDATE, s.TRAINNUMBER, s.REMAININGSEAT, t1.ARRIVETIME, t1.LEAVETIME, t1.DURATION, t1.STATIONORDER as startorder, t2.STATIONORDER as arriveorder
+        from Timeseat s , Time t1, Time t2
+        where s.STARTORDER = #{start} and s.ENDORDER = #{arrive} and s.TRAINDATE = #{date} and t1.TRAINNUMBER = s.TRAINNUMBER and t1.STATION = #{start} and t2.TRAINNUMBER = s.TRAINNUMBER and t2.STATION = #{arrive}
+  </select>
+
+    <!--BigDecimal findStationOrder(String trainnumber, Date traindate, String station)-->
+    <select id="findStationOrder" resultType="int">
+        select t.STATIONORDER from Time t where t.TRAINNUMBER = #{trainnumber} and t.STATION = #{station}
+  </select>
+
+    <!--void sell(String trainnumber, Date traindate, int startOrder, int arriveOrder, int num)-->
+    <update id="sell" >
+    update Seatting
+    set REMAININGSEAT = REMAININGSEAT - #{num}
+    where TRAINNUMBER = #{trainnumber} and TRAINDATE = #{traindate} and STATIONORDER <![CDATA[>=]]> #{startOrder} and STATIONORDER <![CDATA[<]]> #{arriveOrder}
+  </update>
+
+    <!--void back(String trainnumber, Date traindate, int startOrder, int arriveOrder, int num)-->
+    <update id="back" >
+    update Seatting
+    set REMAININGSEAT = REMAININGSEAT + #{num}
+    where TRAINNUMBER = #{trainnumber} and TRAINDATE = #{traindate} and STATIONORDER <![CDATA[>=]]> #{startOrder} and STATIONORDER <![CDATA[<]]> #{arriveOrder}
+  </update>
+
+    <!--BigDecimal findRemainSeat(String trainnumber, Date traindate, int stationorder)-->
+    <select id="findRemainSeat" resultType="int">
+        select REMAININGSEAT from (select s.trainnumber,s.stationorder,s.remainingseat,s.traindate,t.station,t.arrivetime,t.leavetime,t.duration  from seatting s join time t on (s.trainnumber=t.trainnumber and t.stationorder=s.stationorder) )where TRAINNUMBER = #{trainnumber} and TRAINDATE = #{traindate} and STATIONORDER = #{stationorder}
+  </select>
+</mapper>

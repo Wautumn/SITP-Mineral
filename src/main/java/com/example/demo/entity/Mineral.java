@@ -1,61 +1,33 @@
 package com.example.demo.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Id;
-import java.math.BigDecimal;
-import java.util.Date;
+public class mineral {
+    private Integer id;
 
-
-public class Mineral {
-
-    @Id
-    @Column(name="ID")
-    private int id;
-
-    @Column(name="NAME")
     private String name;
 
-    @Column(name="TYPE")
     private String type;
 
-    @Column(name="INTRODUCTION")
     private String introduction;
 
-    @Column(name="COLOR")
     private String color;
 
-    @Column(name="JIELI")
     private String jieli;
 
-    @Column(name="TUQI")
     private String tuqi;
 
-    @Column(name="COLORGANSHE")
     private String colorganshe;
 
-    @Column(name="XIAOGAUNG")
     private String xiaoguang;
 
-    @Column(name="SHUANGJING")
-    private String shuangjinG;
+    private String shuangjing;
 
-    @Column(name="GUANGXING")
     private String guangxing;
 
-    @Column(name="PIC1")
-    private byte pic1;
-
-    @Column(name="PIC2")
-    private byte pic2;
-
-    @Column(name="PIC3")
-    private byte pic3;
-
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -64,7 +36,7 @@ public class Mineral {
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.name = name == null ? null : name.trim();
     }
 
     public String getType() {
@@ -72,7 +44,7 @@ public class Mineral {
     }
 
     public void setType(String type) {
-        this.type = type;
+        this.type = type == null ? null : type.trim();
     }
 
     public String getIntroduction() {
@@ -80,7 +52,7 @@ public class Mineral {
     }
 
     public void setIntroduction(String introduction) {
-        this.introduction = introduction;
+        this.introduction = introduction == null ? null : introduction.trim();
     }
 
     public String getColor() {
@@ -88,7 +60,7 @@ public class Mineral {
     }
 
     public void setColor(String color) {
-        this.color = color;
+        this.color = color == null ? null : color.trim();
     }
 
     public String getJieli() {
@@ -96,7 +68,7 @@ public class Mineral {
     }
 
     public void setJieli(String jieli) {
-        this.jieli = jieli;
+        this.jieli = jieli == null ? null : jieli.trim();
     }
 
     public String getTuqi() {
@@ -104,7 +76,7 @@ public class Mineral {
     }
 
     public void setTuqi(String tuqi) {
-        this.tuqi = tuqi;
+        this.tuqi = tuqi == null ? null : tuqi.trim();
     }
 
     public String getColorganshe() {
@@ -112,7 +84,7 @@ public class Mineral {
     }
 
     public void setColorganshe(String colorganshe) {
-        this.colorganshe = colorganshe;
+        this.colorganshe = colorganshe == null ? null : colorganshe.trim();
     }
 
     public String getXiaoguang() {
@@ -120,15 +92,15 @@ public class Mineral {
     }
 
     public void setXiaoguang(String xiaoguang) {
-        this.xiaoguang = xiaoguang;
+        this.xiaoguang = xiaoguang == null ? null : xiaoguang.trim();
     }
 
-    public String getShuangjinG() {
-        return shuangjinG;
+    public String getShuangjing() {
+        return shuangjing;
     }
 
-    public void setShuangjinG(String shuangjinG) {
-        this.shuangjinG = shuangjinG;
+    public void setShuangjing(String shuangjing) {
+        this.shuangjing = shuangjing == null ? null : shuangjing.trim();
     }
 
     public String getGuangxing() {
@@ -136,30 +108,6 @@ public class Mineral {
     }
 
     public void setGuangxing(String guangxing) {
-        this.guangxing = guangxing;
-    }
-
-    public byte getPic1() {
-        return pic1;
-    }
-
-    public void setPic1(byte pic1) {
-        this.pic1 = pic1;
-    }
-
-    public byte getPic2() {
-        return pic2;
-    }
-
-    public void setPic2(byte pic2) {
-        this.pic2 = pic2;
-    }
-
-    public byte getPic3() {
-        return pic3;
-    }
-
-    public void setPic3(byte pic3) {
-        this.pic3 = pic3;
+        this.guangxing = guangxing == null ? null : guangxing.trim();
     }
 }

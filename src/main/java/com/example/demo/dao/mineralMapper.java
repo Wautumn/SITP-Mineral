@@ -35,4 +35,6 @@ public interface mineralMapper {
     int updateByPrimaryKeyWithBLOBs(mineralWithBLOBs record);
 
     int updateByPrimaryKey(mineral record);
+
+    int ifExistMineralByName(String name);
 }

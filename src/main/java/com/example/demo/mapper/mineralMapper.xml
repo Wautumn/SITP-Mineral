@@ -84,6 +84,15 @@
   <sql id="Blob_Column_List" >
     pic1, pic2, pic3
   </sql>
+
+
+
+
+
+
+
+
+
   <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="com.example.demo.entity.mineralExample" >
     select
     <if test="distinct" >

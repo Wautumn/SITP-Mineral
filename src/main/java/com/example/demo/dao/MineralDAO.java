@@ -4,10 +4,15 @@ import com.example.demo.entity.mineral;
 import com.example.demo.entity.mineralExample;
 import com.example.demo.entity.mineralWithBLOBs;
 import java.util.List;
+
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
-
-public interface mineralMapper {
+@Mapper
+@Component
+public interface MineralDAO {
     int countByExample(mineralExample example);
 
     int deleteByExample(mineralExample example);
@@ -36,5 +41,5 @@ public interface mineralMapper {
 
     int updateByPrimaryKey(mineral record);
 
-    int ifExistMineralByName(String name);
+    List<mineral> findMineralByName(String name);
 }

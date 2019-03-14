@@ -1,15 +1,19 @@
 package com.example.demo.entity;
 
-public class mineral {
+public class Mineral {
     private Integer id;
 
     private String name;
 
+    private String axiality;
+
     private String type;
 
-    private String introduction;
+    private String form;
 
-    private String color;
+    private String handspecolor;
+
+    private String slicecolor;
 
     private String jieli;
 
@@ -19,7 +23,7 @@ public class mineral {
 
     private String xiaoguang;
 
-    private String shuangjing;
+    private String shuangjin;
 
     private String guangxing;
 
@@ -36,7 +40,15 @@ public class mineral {
     }
 
     public void setName(String name) {
-        this.name = name == null ? null : name.trim();
+        this.name = name;
+    }
+
+    public String getAxiality() {
+        return axiality;
+    }
+
+    public void setAxiality(String axiality) {
+        this.axiality = axiality;
     }
 
     public String getType() {
@@ -44,23 +56,31 @@ public class mineral {
     }
 
     public void setType(String type) {
-        this.type = type == null ? null : type.trim();
+        this.type = type;
     }
 
-    public String getIntroduction() {
-        return introduction;
+    public String getForm() {
+        return form;
     }
 
-    public void setIntroduction(String introduction) {
-        this.introduction = introduction == null ? null : introduction.trim();
+    public void setForm(String form) {
+        this.form = form;
     }
 
-    public String getColor() {
-        return color;
+    public String getHandspecolor() {
+        return handspecolor;
     }
 
-    public void setColor(String color) {
-        this.color = color == null ? null : color.trim();
+    public void setHandspecolor(String handspecolor) {
+        this.handspecolor = handspecolor;
+    }
+
+    public String getSlicecolor() {
+        return slicecolor;
+    }
+
+    public void setSlicecolor(String slicecolor) {
+        this.slicecolor = slicecolor;
     }
 
     public String getJieli() {
@@ -68,7 +88,7 @@ public class mineral {
     }
 
     public void setJieli(String jieli) {
-        this.jieli = jieli == null ? null : jieli.trim();
+        this.jieli = jieli;
     }
 
     public String getTuqi() {
@@ -76,7 +96,7 @@ public class mineral {
     }
 
     public void setTuqi(String tuqi) {
-        this.tuqi = tuqi == null ? null : tuqi.trim();
+        this.tuqi = tuqi;
     }
 
     public String getColorganshe() {
@@ -84,7 +104,7 @@ public class mineral {
     }
 
     public void setColorganshe(String colorganshe) {
-        this.colorganshe = colorganshe == null ? null : colorganshe.trim();
+        this.colorganshe = colorganshe;
     }
 
     public String getXiaoguang() {
@@ -92,15 +112,15 @@ public class mineral {
     }
 
     public void setXiaoguang(String xiaoguang) {
-        this.xiaoguang = xiaoguang == null ? null : xiaoguang.trim();
+        this.xiaoguang = xiaoguang;
     }
 
-    public String getShuangjing() {
-        return shuangjing;
+    public String getShuangjin() {
+        return shuangjin;
     }
 
-    public void setShuangjing(String shuangjing) {
-        this.shuangjing = shuangjing == null ? null : shuangjing.trim();
+    public void setShuangjin(String shuangjin) {
+        this.shuangjin = shuangjin;
     }
 
     public String getGuangxing() {
@@ -108,6 +128,6 @@ public class mineral {
     }
 
     public void setGuangxing(String guangxing) {
-        this.guangxing = guangxing == null ? null : guangxing.trim();
+        this.guangxing = guangxing;
     }
 }

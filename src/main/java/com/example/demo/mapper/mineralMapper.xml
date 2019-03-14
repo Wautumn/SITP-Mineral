@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.example.demo.dao.mineralMapper" >
+<mapper namespace="com.example.demo.dao.MineralDAO" >
   <resultMap id="BaseResultMap" type="com.example.demo.entity.mineral" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="name" property="name" jdbcType="VARCHAR" />
@@ -86,7 +86,11 @@
   </sql>
 
 
-
+  <select id="findMineralByName" parameterType="String" resultType="com.example.demo.entity.mineral">
+  select *
+  from Mineral
+  where name=#{name}
+  </select>
 
 
 

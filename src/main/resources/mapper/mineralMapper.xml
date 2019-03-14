@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.dao.MineralMapper" >
+  <resultMap id="BaseResultMap" type="com.example.demo.entity.Mineral" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="axiality" property="axiality" jdbcType="VARCHAR" />
+    <result column="type" property="type" jdbcType="VARCHAR" />
+    <result column="form" property="form" jdbcType="VARCHAR" />
+    <result column="handspecolor" property="handspecolor" jdbcType="VARCHAR" />
+    <result column="slicecolor" property="slicecolor" jdbcType="VARCHAR" />
+    <result column="jieli" property="jieli" jdbcType="VARCHAR" />
+    <result column="tuqi" property="tuqi" jdbcType="VARCHAR" />
+    <result column="colorganshe" property="colorganshe" jdbcType="VARCHAR" />
+    <result column="xiaoguang" property="xiaoguang" jdbcType="VARCHAR" />
+    <result column="shuangjin" property="shuangjing" jdbcType="VARCHAR" />
+    <result column="guangxing" property="guangxing" jdbcType="VARCHAR" />
+  </resultMap>
+
+
+  <select id="FindByName" parameterType="String" resultType="com.example.demo.entity.Mineral">
+  select *
+  from Mineral
+  where name like "%"#{name}"%"
+  </select>
+
+
+  <select id="FindByType" parameterType="String" resultType="com.example.demo.entity.Mineral">
+  select *
+  from Mineral
+  where type like "%"#{type}"%"
+  </select>
+
+  <select id="FindByKeyword" parameterType="String" resultType="com.example.demo.entity.Mineral">
+  select *
+  from Mineral
+  where name like "%"#{keyword}"%"
+  or axiality like "%"#{keyword}"%"
+  or type like "%"#{keyword}"%"
+  or form like "%"#{keyword}"%"
+  or handspecolor like "%"#{keyword}"%"
+  or slicecolor like "%"#{keyword}"%"
+  or jieli like "%"#{keyword}"%"
+  or tuqi like "%"#{keyword}"%"
+  or colorganshe like "%"#{keyword}"%"
+  or xiaoguang like "%"#{keyword}"%"
+  or shuangjin like "%"#{keyword}"%"
+  or guangxing like "%"#{keyword}"%"
+
+  </select>
+
+
+
+
+
+</mapper>

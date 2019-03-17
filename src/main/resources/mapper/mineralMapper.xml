@@ -24,6 +24,12 @@
   where name like "%"#{name}"%"
   </select>
 
+  <select id="FindById" parameterType="Integer" resultType="com.example.demo.entity.Mineral">
+  select id,name
+  from Mineral
+  where id=#{id}
+  </select>
+
 
   <select id="FindByType" parameterType="String" resultType="com.example.demo.entity.Mineral">
   select *

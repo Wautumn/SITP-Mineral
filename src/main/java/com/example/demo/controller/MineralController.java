@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.entity.Mineral;
+import com.example.demo.entity.SuggestForm;
 import com.example.demo.service.MineralService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,5 +24,17 @@ public class MineralController {
     public List<Mineral> GetMineralByKeyword(String keyword){
         return mineralService.GetMineralByKeyword(keyword);
     }
+
+    @RequestMapping(value = "/getMineralPic",method = RequestMethod.GET)
+    public List<String> GetMineralPic(int id){
+        return mineralService.GetMineralPic(id);
+    }
+
+    @RequestMapping(value = "/getHotMineral",method = RequestMethod.GET)
+    public List<SuggestForm> GetHotMineral(){
+        return mineralService.GetHotMineral();
+    }
+
+
 
 }

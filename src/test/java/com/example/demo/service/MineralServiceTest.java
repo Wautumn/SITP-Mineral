@@ -1,6 +1,7 @@
 package com.example.demo.service;
 
 import com.example.demo.dao.MineralMapper;
+import com.example.demo.dao.MineralPicMapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,9 @@ public class MineralServiceTest {
     @Autowired
     MineralMapper mineralMapper;
 
+    @Autowired
+    MineralPicMapper mineralPicMapper;
+
     @Test
     public void findByKeyword(){
         System.out.println(mineralMapper.FindByKeyword("无色").size());
@@ -31,5 +35,10 @@ public class MineralServiceTest {
     @Test
     public void findByType(){
         System.out.println(mineralMapper.FindByType("三斜").size());
+    }
+
+    @Test
+    public void findPic(){
+        System.out.println(mineralService.GetMineralPic(2));
     }
 }

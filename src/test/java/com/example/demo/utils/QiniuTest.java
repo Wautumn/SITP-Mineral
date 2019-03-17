@@ -2,6 +2,7 @@ package com.example.demo.utils;
 
 
 import com.example.demo.other.FileUploadUtils;
+import com.example.demo.other.MediaUploadUtils;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -16,8 +17,9 @@ public class QiniuTest {
     public void testupload() throws Exception {
 // 第一个参数 上传文件的位置
 // 第二个上传文件的名称
-        String result = FileUploadUtils.fileUploadToQiNiu("C://Users//22831//Desktop//SITP//图片//透明薄片图片（显微镜下）002//石榴子石.png","石榴子石.png");
-        System.out.println(result);
+        // MediaUploadUtils.fileUploadToQiNiu("C://Users//22831//Desktop//SITP//WeChat_20190315222216.mp4","WeChat_20190315222216.mp4");
+        MediaUploadUtils.fileUploadToQiNiu("C://Users//22831//Desktop//SITP//IMG20181002161204.avi","IMG20181002161204.avi");
+
 
 
 

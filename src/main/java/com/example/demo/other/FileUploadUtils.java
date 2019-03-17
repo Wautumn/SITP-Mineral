@@ -17,7 +17,7 @@ public class FileUploadUtils {
 
         String accessKey = "qzy__FY4LlKGnJ4Sj8oJmG0LZ33eoETNjgsUbD9d";
         String secretKey = "qzoBpIj4P4j5F76m8u5Bi9DtfYutHBw-7AQSrwdj";
-        String bucket = "mineralpic2";
+        String bucket = "picture";
 
 
         String localFilePath =uploadFile;
@@ -27,9 +27,9 @@ public class FileUploadUtils {
         String upToken = auth.uploadToken(bucket);
 
         try{
-            System.out.println("a");
+
             Response response = uploadManager.put(localFilePath, key, upToken);
-            System.out.println("a");
+
             // 解析上传成功的结果
             DefaultPutRet putRet = new Gson().fromJson(response.bodyString(),
                     DefaultPutRet.class);

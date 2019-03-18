@@ -25,7 +25,7 @@
   </select>
 
   <select id="FindById" parameterType="Integer" resultType="com.example.demo.entity.Mineral">
-  select id,name
+  select *
   from Mineral
   where id=#{id}
   </select>

@@ -34,7 +34,7 @@ public class MineralServiceTest {
 
     @Test
     public void findByType(){
-        System.out.println(mineralMapper.FindByType("三斜").size());
+        System.out.println(mineralMapper.FindById(2).getName());
     }
 
     @Test

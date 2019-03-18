@@ -13,7 +13,7 @@ import java.util.List;
 public interface MineralMapper {
     List<Mineral> FindByKeyword(String keyword);
 
-    List<Mineral> FindById(int id);
+    Mineral FindById(int id);
 
     List<Mineral> FindByName(String name);
 

@@ -43,14 +43,18 @@ public class MineralService {
 
    public List<SuggestForm> GetHotMineral(){
        List<SuggestForm> hotMineral=new LinkedList<>();
-       for(int i=1;i<9;i++){
-           List<Mineral> mineral=mineralMapper.FindById(i);
-           System.out.println("size"+mineral.size());
-           SuggestForm suggestForm=new SuggestForm();
-           suggestForm.setName(mineral.get(0).getName());
-           suggestForm.setId(mineral.get(0).getId());
-           suggestForm.setPic(mineralPicMapper.FindPicById(i).get(0).getPic1());
-           hotMineral.add(suggestForm);
+
+       for(int i=1;i<20;i++){
+         if(hotMineral.size()<8) {
+               Mineral mineral = mineralMapper.FindById(i);
+              // System.out.println("size" + mineral);
+               SuggestForm suggestForm = new SuggestForm();
+               suggestForm.setName(mineral.getName());
+               suggestForm.setId(mineral.getId());
+               suggestForm.setPic(mineralPicMapper.FindPicById(i).get(0).getPic1());
+               if(suggestForm.getPic()!=null)
+               hotMineral.add(suggestForm);
+           }
 
        }
        return hotMineral;

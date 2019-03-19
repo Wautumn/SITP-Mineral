@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.dao.MineralMediaMapper" >
+  <resultMap id="BaseResultMap" type="com.example.demo.entity.MineralMedia" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="mediadan" property="mediadan" jdbcType="VARCHAR" />
+    <result column="mediashi" property="mediashi" jdbcType="VARCHAR" />
+    <result column="mediayun" property="mediayun" jdbcType="VARCHAR" />
+    <result column="mediazheng" property="mediazheng" jdbcType="VARCHAR" />
+  </resultMap>
+
+
+  <select id="FindMediaById" parameterType="Integer" resultType="com.example.demo.entity.MineralMedia">
+  select *
+  from MineralMedia
+  where id=#{id}
+  </select>
+
+
+
+</mapper>

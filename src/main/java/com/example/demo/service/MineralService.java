@@ -1,8 +1,10 @@
 package com.example.demo.service;
 
 import com.example.demo.dao.MineralMapper;
+import com.example.demo.dao.MineralMediaMapper;
 import com.example.demo.dao.MineralPicMapper;
 import com.example.demo.entity.Mineral;
+import com.example.demo.entity.MineralMedia;
 import com.example.demo.entity.MineralPic;
 import com.example.demo.entity.SuggestForm;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +21,9 @@ public class MineralService {
 
     @Autowired
     MineralPicMapper mineralPicMapper;
+
+    @Autowired
+    MineralMediaMapper mineralMediaMapper;
 
    public List<Mineral> GetMineralByKeyword(String keyword){
        return mineralMapper.FindByKeyword(keyword);
@@ -58,6 +63,14 @@ public class MineralService {
 
        }
        return hotMineral;
+   }
+
+   public MineralMedia GetMediaById(int id){
+       MineralMedia mineralMedia= mineralMediaMapper.FindMediaById(id);
+       if(mineralMedia==null){
+           System.out.println("no media");
+       }
+       return mineralMedia;
    }
 
 

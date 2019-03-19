@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.entity.Mineral;
+import com.example.demo.entity.MineralMedia;
 import com.example.demo.entity.SuggestForm;
 import com.example.demo.service.MineralService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +34,11 @@ public class MineralController {
     @RequestMapping(value = "/getHotMineral",method = RequestMethod.GET)
     public List<SuggestForm> GetHotMineral(){
         return mineralService.GetHotMineral();
+    }
+
+    @RequestMapping(value = "/getMedia",method = RequestMethod.GET)
+    public MineralMedia GetMedia(int id){
+        return mineralService.GetMediaById(id);
     }
 
 

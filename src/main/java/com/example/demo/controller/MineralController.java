@@ -41,6 +41,11 @@ public class MineralController {
         return mineralService.GetMediaById(id);
     }
 
+    @RequestMapping(value = "/getMediaAPic",method = RequestMethod.GET)
+    public List GetMediaAPic(int id){
+        return mineralService.GetPicAMedia(id);
+    }
+
 
 
 }

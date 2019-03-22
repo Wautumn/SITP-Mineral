@@ -13,10 +13,14 @@ public class change {
 
     public static void main(String[] args){
         change c=new change();
-        c.handle("正长石正交光.3gp","h正长石正交光.3gp");
-        c.handle("正长石锥光.3gp","h正长石锥光.3gp");
-       // c.handle("蓝晶石正交镜.3gp","h蓝晶石正交镜.3gp");
-      // c.handle("红柱石正交镜.3gp","h红柱石正交镜.3gp");
+      //  c.handle("正长石正交光.3gp","h正长石正交光.3gp");
+       // c.handle("硬石膏（云母）.3gp","h硬石膏（云母）.3gp");
+       // c.handle("硬石膏（正交）.3gp","h硬石膏（正交）.3gp");
+      //  c.handle("普通辉石.3gp","h普通辉石.3gp");
+       // c.handle("中长石（石膏）.3gp","h中长石（石膏）.3gp");
+       // c.handle("中长石（云母）.3gp","h中长石（云母）.3gp");
+       // c.handle("中长石（正交）.3gp","h中长石（正交）.3gp");
+       // c.handle("角闪石.3gp","h角闪石.3gp");
     }
 
 
@@ -25,7 +29,7 @@ public class change {
     public void handle(String name1,String name2) {
         String accessKey = "qzy__FY4LlKGnJ4Sj8oJmG0LZ33eoETNjgsUbD9d";
         String secretKey = "qzoBpIj4P4j5F76m8u5Bi9DtfYutHBw-7AQSrwdj";
-        String bucket = "media";
+        String bucket = "media2";
         String key = name1;
 
         String newKey = name2;

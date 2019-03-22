@@ -9,5 +9,5 @@ import java.util.List;
 @Mapper
 @Component
 public interface MineralPicMapper {
-    List<MineralPic> FindPicById(int id);
+    MineralPic FindPicById(int id);
 }

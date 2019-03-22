@@ -3,10 +3,7 @@ package com.example.demo.service;
 import com.example.demo.dao.MineralMapper;
 import com.example.demo.dao.MineralMediaMapper;
 import com.example.demo.dao.MineralPicMapper;
-import com.example.demo.entity.Mineral;
-import com.example.demo.entity.MineralMedia;
-import com.example.demo.entity.MineralPic;
-import com.example.demo.entity.SuggestForm;
+import com.example.demo.entity.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,25 +22,62 @@ public class MineralService {
     @Autowired
     MineralMediaMapper mineralMediaMapper;
 
-   public List<Mineral> GetMineralByKeyword(String keyword){
-       return mineralMapper.FindByKeyword(keyword);
+   public List GetMineralByKeyword(String keyword){
+       List<Mineral> minerals= mineralMapper.FindByKeyword(keyword);
+       List result=new LinkedList();
+       for(Mineral m:minerals){
+           String pic=GetOnePic(m.getId());
+           MineralForm mineralForm=new MineralForm();
+           mineralForm.setPic(pic);
+           mineralForm.setAxiality(m.getAxiality());
+           mineralForm.setColorganshe(m.getColorganshe());
+           mineralForm.setForm(m.getForm());
+           mineralForm.setGuangxing(m.getGuangxing());
+           mineralForm.setHandspecolor(m.getHandspecolor());
+           mineralForm.setId(m.getId());
+           mineralForm.setJieli(m.getJieli());
+           mineralForm.setName(m.getName());
+           mineralForm.setType(m.getType());
+           mineralForm.setSlicecolor(m.getSlicecolor());
+           mineralForm.setTuqi(m.getTuqi());
+           mineralForm.setXiaoguang(m.getXiaoguang());
+           mineralForm.setShuangjin(m.getShuangjin());
+           result.add(mineralForm);
+       }
+       return result;
    }
 
    public List<String> GetMineralPic(int id){
-       List<MineralPic> mineralPic=mineralPicMapper.FindPicById(id);
+       MineralPic mineralPic=mineralPicMapper.FindPicById(id);
        List<String>  urls=new LinkedList<>();
-       for(int i=0;i<mineralPic.size();i++){
-           if(mineralPic.get(i).getPic1()!=null) {
-               urls.add(mineralPic.get(i).getPic1());
+           if(mineralPic.getPic1()!=null) {
+               urls.add(mineralPic.getPic1());
            }
-           if(mineralPic.get(i).getPic2()!=null) {
-               urls.add(mineralPic.get(i).getPic2());
+           if(mineralPic.getPic2()!=null) {
+               urls.add(mineralPic.getPic2());
            }
-           if(mineralPic.get(i).getPic3()!=null) {
-               urls.add(mineralPic.get(i).getPic3());
+           if(mineralPic.getPic3()!=null) {
+               urls.add(mineralPic.getPic3());
            }
-       }
        return urls;
+   }
+
+   public String GetOnePic(int id){
+       String onemineralpic;
+       MineralPic mineralPic=mineralPicMapper.FindPicById(id);
+       if(mineralPic.getPic1()!=null) {
+           onemineralpic=mineralPic.getPic1();
+       }
+       else if(mineralPic.getPic2()!=null) {
+           onemineralpic=mineralPic.getPic2();
+       }
+       else if(mineralPic.getPic3()!=null) {
+           onemineralpic=mineralPic.getPic3();
+       }
+       else
+           return null;
+       return onemineralpic;
+
    }
 
    public List<SuggestForm> GetHotMineral(){
@@ -56,7 +90,7 @@ public class MineralService {
                SuggestForm suggestForm = new SuggestForm();
                suggestForm.setName(mineral.getName());
                suggestForm.setId(mineral.getId());
-               suggestForm.setPic(mineralPicMapper.FindPicById(i).get(0).getPic1());
+               suggestForm.setPic(mineralPicMapper.FindPicById(i).getPic1());
                if(suggestForm.getPic()!=null)
                hotMineral.add(suggestForm);
            }
@@ -71,6 +105,24 @@ public class MineralService {
            System.out.println("no media");
        }
        return mineralMedia;
+   }
+
+   public List GetPicAMedia(int id){
+       List<PicAMedia> result=new LinkedList();
+       MineralPic mineralPics=mineralPicMapper.FindPicById(id);
+       MineralMedia mineralMedia=mineralMediaMapper.FindMediaById(id);
+       PicAMedia picAMedia=new PicAMedia();
+       picAMedia.setMineralid(id);
+       picAMedia.setName(mineralMedia.getName());
+       picAMedia.setPic1(mineralPics.getPic1());
+       picAMedia.setPic2(mineralPics.getPic2());
+       picAMedia.setMediadan(mineralMedia.getMediadan());
+       picAMedia.setMediashi(mineralMedia.getMediashi());
+       picAMedia.setMediayun(mineralMedia.getMediayun());
+       picAMedia.setMediazheng(mineralMedia.getMediazheng());
+       result.add(picAMedia);
+       return result;
+
    }
 
 

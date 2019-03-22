@@ -1,8 +1,6 @@
 package com.example.demo.controller;
 
-import com.example.demo.entity.Mineral;
-import com.example.demo.entity.MineralMedia;
-import com.example.demo.entity.SuggestForm;
+import com.example.demo.entity.*;
 import com.example.demo.service.MineralService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -45,6 +43,13 @@ public class MineralController {
     public List GetMediaAPic(int id){
         return mineralService.GetPicAMedia(id);
     }
+
+    @RequestMapping(value = "/getMineral",method = RequestMethod.GET)
+    public MineralForm2 GetMineralById(int id){
+        return mineralService.FindMineralById(id);
+    }
+
+
 
 
 

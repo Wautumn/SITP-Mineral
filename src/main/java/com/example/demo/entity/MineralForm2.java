@@ -1,6 +1,6 @@
 package com.example.demo.entity;
 
-public class MineralForm {
+public class MineralForm2 {
     private Integer id;
 
     private String name;
@@ -27,17 +27,12 @@ public class MineralForm {
 
     private String guangxing;
 
-    private String pic1;
+    private String[] pics;
 
-    private String pic2;
 
-    private String mediadan;
 
-    private String mediashi;
+    private String[] medias;
 
-    private String mediayun;
-
-    private String mediazheng;
 
     public Integer getId() {
         return id;
@@ -143,51 +138,19 @@ public class MineralForm {
         this.guangxing = guangxing;
     }
 
-    public String getPic1() {
-        return pic1;
+    public String[] getPics() {
+        return pics;
     }
 
-    public void setPic1(String pic1) {
-        this.pic1 = pic1;
+    public void setPics(String[] pics) {
+        this.pics = pics;
     }
 
-    public String getPic2() {
-        return pic2;
+    public String[] getMedias() {
+        return medias;
     }
 
-    public void setPic2(String pic2) {
-        this.pic2 = pic2;
-    }
-
-    public String getMediadan() {
-        return mediadan;
-    }
-
-    public void setMediadan(String mediadan) {
-        this.mediadan = mediadan;
-    }
-
-    public String getMediashi() {
-        return mediashi;
-    }
-
-    public void setMediashi(String mediashi) {
-        this.mediashi = mediashi;
-    }
-
-    public String getMediayun() {
-        return mediayun;
-    }
-
-    public void setMediayun(String mediayun) {
-        this.mediayun = mediayun;
-    }
-
-    public String getMediazheng() {
-        return mediazheng;
-    }
-
-    public void setMediazheng(String mediazheng) {
-        this.mediazheng = mediazheng;
+    public void setMedias(String[] medias) {
+        this.medias = medias;
     }
 }

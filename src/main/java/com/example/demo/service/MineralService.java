@@ -28,7 +28,7 @@ public class MineralService {
        for(Mineral m:minerals){
            String pic=GetOnePic(m.getId());
            MineralForm mineralForm=new MineralForm();
-           mineralForm.setPic(pic);
+           mineralForm.setPic1(pic);
            mineralForm.setAxiality(m.getAxiality());
            mineralForm.setColorganshe(m.getColorganshe());
            mineralForm.setForm(m.getForm());
@@ -45,6 +45,48 @@ public class MineralService {
            result.add(mineralForm);
        }
        return result;
+   }
+
+   public MineralForm2 FindMineralById(int id){
+       MineralMedia mineralMedia=mineralMediaMapper.FindMediaById(id);
+       Mineral mineral=mineralMapper.FindById(id);
+       MineralPic mineralPic=mineralPicMapper.FindPicById(id);
+
+       MineralForm2 mineralForm=new MineralForm2();
+
+       String[] pics=new String[2];
+       pics[0]=mineralPic.getPic1();
+       pics[1]=mineralPic.getPic2();
+
+       String[] medias=new String[4];
+       medias[0]=mineralMedia.getMediadan();
+       medias[1]=mineralMedia.getMediashi();
+       medias[2]=mineralMedia.getMediayun();
+       medias[3]=mineralMedia.getMediazheng();
+
+
+       mineralForm.setPics(pics);
+       mineralForm.setMedias(medias);
+
+       mineralForm.setId(id);
+       mineralForm.setName(mineral.getName());
+       mineral.setAxiality(mineral.getAxiality());
+       mineral.setType(mineral.getType());
+       mineralForm.setForm(mineral.getForm());
+       mineralForm.setHandspecolor(mineral.getHandspecolor());
+       mineralForm.setSlicecolor(mineral.getSlicecolor());
+       mineralForm.setJieli(mineral.getJieli());
+       mineralForm.setTuqi(mineral.getTuqi());
+       mineralForm.setColorganshe(mineral.getColorganshe());
+       mineralForm.setXiaoguang(mineral.getXiaoguang());
+       mineralForm.setShuangjin(mineral.getShuangjin());
+       mineralForm.setGuangxing(mineral.getGuangxing());
+    //   mineralForm.setMediadan(mineralMedia.getMediadan());
+     //  mineralForm.setMediashi(mineralMedia.getMediashi());
+      // mineralForm.setMediayun(mineralMedia.getMediayun());
+      // mineralForm.setMediazheng(mineralMedia.getMediazheng());*/
+       return mineralForm;
+
    }
 
    public List<String> GetMineralPic(int id){

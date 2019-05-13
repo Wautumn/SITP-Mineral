@@ -18,6 +18,7 @@ public class DemoApplication  extends SpringBootServletInitializer {
     public String home(){
         return "hello,mineral!";
     }
+
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder builder) {
         return builder.sources(DemoApplication.class);

@@ -31,13 +31,6 @@ public class MineralForm {
 
     private String pic2;
 
-    private String mediadan;
-
-    private String mediashi;
-
-    private String mediayun;
-
-    private String mediazheng;
 
     public Integer getId() {
         return id;
@@ -159,35 +152,6 @@ public class MineralForm {
         this.pic2 = pic2;
     }
 
-    public String getMediadan() {
-        return mediadan;
-    }
 
-    public void setMediadan(String mediadan) {
-        this.mediadan = mediadan;
-    }
 
-    public String getMediashi() {
-        return mediashi;
-    }
-
-    public void setMediashi(String mediashi) {
-        this.mediashi = mediashi;
-    }
-
-    public String getMediayun() {
-        return mediayun;
-    }
-
-    public void setMediayun(String mediayun) {
-        this.mediayun = mediayun;
-    }
-
-    public String getMediazheng() {
-        return mediazheng;
-    }
-
-    public void setMediazheng(String mediazheng) {
-        this.mediazheng = mediazheng;
-    }
 }

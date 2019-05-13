@@ -31,9 +31,6 @@ public class MineralForm2 {
 
 
 
-    private String[] medias;
-
-
     public Integer getId() {
         return id;
     }
@@ -146,11 +143,5 @@ public class MineralForm2 {
         this.pics = pics;
     }
 
-    public String[] getMedias() {
-        return medias;
-    }
 
-    public void setMedias(String[] medias) {
-        this.medias = medias;
-    }
 }

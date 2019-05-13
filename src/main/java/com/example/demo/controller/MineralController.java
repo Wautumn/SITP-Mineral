@@ -34,16 +34,13 @@ public class MineralController {
         return mineralService.GetHotMineral();
     }
 
-    @RequestMapping(value = "/getMedia",method = RequestMethod.GET)
-    public MineralMedia GetMedia(int id){
-        return mineralService.GetMediaById(id);
-    }
 
-    @RequestMapping(value = "/getMediaAPic",method = RequestMethod.GET)
-    public List GetMediaAPic(int id){
-        return mineralService.GetPicAMedia(id);
-    }
 
+//    @RequestMapping(value = "/getMediaAPic",method = RequestMethod.GET)
+//    public List GetMediaAPic(int id){
+//        return mineralService.GetPicAMedia(id);
+//    }
+//
     @RequestMapping(value = "/getMineral",method = RequestMethod.GET)
     public MineralForm2 GetMineralById(int id){
         return mineralService.FindMineralById(id);

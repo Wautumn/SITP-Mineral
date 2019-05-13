@@ -20,13 +20,13 @@ public class FileUploadUtils {
         String bucket = "picture";
 
 
-        String localFilePath =uploadFile;
+        String localFilePath = uploadFile;
         String key = fileName;
 
         Auth auth = Auth.create(accessKey, secretKey);
         String upToken = auth.uploadToken(bucket);
 
-        try{
+        try {
 
             Response response = uploadManager.put(localFilePath, key, upToken);
 
@@ -35,12 +35,12 @@ public class FileUploadUtils {
                     DefaultPutRet.class);
             System.out.println(putRet.key);
             System.out.println(putRet.hash);
-        }catch(Exception ex){
-            return "上传失败"+ex.getMessage();
+        } catch (Exception ex) {
+            return "上传失败" + ex.getMessage();
         }
         return "上传成功";
     }
 
-    }
+}
 
 

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.demo.dao.NewPicMapper">
+    <resultMap id="BaseResultMap" type="com.example.demo.entity.NewPic">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="picdan" property="picdan" jdbcType="VARCHAR"/>
+        <result column="picyun" property="picyun" jdbcType="VARCHAR"/>
+        <result column="picshi" property="picshi" jdbcType="VARCHAR"/>
+        <result column="piczheng" property="piczheng" jdbcType="VARCHAR"/>
+
+    </resultMap>
+
+
+    <select id="getMineralNewPic" parameterType="String" resultType="com.example.demo.entity.NewPic">
+  select *
+  from newPic
+  where name = #{name}
+  </select>
+
+
+</mapper>

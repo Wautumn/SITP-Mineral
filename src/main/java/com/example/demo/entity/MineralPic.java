@@ -7,7 +7,7 @@ public class MineralPic {
 
     private String pic2;
 
-    private String pic3;
+    private String name;
 
     public int getId() {
         return id;
@@ -33,11 +33,11 @@ public class MineralPic {
         this.pic2 = pic2;
     }
 
-    public String getPic3() {
-        return pic3;
+    public String getName() {
+        return name;
     }
 
-    public void setPic3(String pic3) {
-        this.pic3 = pic3;
+    public void setName(String name) {
+        this.name = name;
     }
 }

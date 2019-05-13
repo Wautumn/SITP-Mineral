@@ -3,9 +3,10 @@
 <mapper namespace="com.example.demo.dao.MineralPicMapper" >
   <resultMap id="BaseResultMap" type="com.example.demo.entity.Mineral" >
     <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
     <result column="pic1" property="pic1" jdbcType="VARCHAR" />
     <result column="pic2" property="pic2" jdbcType="VARCHAR" />
-    <result column="pic3" property="pic3" jdbcType="VARCHAR" />
+
   </resultMap>
 
 

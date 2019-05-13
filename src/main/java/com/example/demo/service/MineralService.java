@@ -48,7 +48,6 @@ public class MineralService {
    }
 
    public MineralForm2 FindMineralById(int id){
-       MineralMedia mineralMedia=mineralMediaMapper.FindMediaById(id);
        Mineral mineral=mineralMapper.FindById(id);
        MineralPic mineralPic=mineralPicMapper.FindPicById(id);
 
@@ -59,14 +58,10 @@ public class MineralService {
        pics[1]=mineralPic.getPic2();
 
        String[] medias=new String[4];
-       medias[0]=mineralMedia.getMediadan();
-       medias[1]=mineralMedia.getMediashi();
-       medias[2]=mineralMedia.getMediayun();
-       medias[3]=mineralMedia.getMediazheng();
 
 
        mineralForm.setPics(pics);
-       mineralForm.setMedias(medias);
+
 
        mineralForm.setId(id);
        mineralForm.setName(mineral.getName());
@@ -81,10 +76,6 @@ public class MineralService {
        mineralForm.setXiaoguang(mineral.getXiaoguang());
        mineralForm.setShuangjin(mineral.getShuangjin());
        mineralForm.setGuangxing(mineral.getGuangxing());
-    //   mineralForm.setMediadan(mineralMedia.getMediadan());
-     //  mineralForm.setMediashi(mineralMedia.getMediashi());
-      // mineralForm.setMediayun(mineralMedia.getMediayun());
-      // mineralForm.setMediazheng(mineralMedia.getMediazheng());*/
        return mineralForm;
 
    }
@@ -98,9 +89,7 @@ public class MineralService {
            if(mineralPic.getPic2()!=null) {
                urls.add(mineralPic.getPic2());
            }
-           if(mineralPic.getPic3()!=null) {
-               urls.add(mineralPic.getPic3());
-           }
+
        return urls;
    }
 
@@ -113,9 +102,7 @@ public class MineralService {
        else if(mineralPic.getPic2()!=null) {
            onemineralpic=mineralPic.getPic2();
        }
-       else if(mineralPic.getPic3()!=null) {
-           onemineralpic=mineralPic.getPic3();
-       }
+
        else
            return null;
        return onemineralpic;
@@ -141,32 +128,32 @@ public class MineralService {
        return hotMineral;
    }
 
-   public MineralMedia GetMediaById(int id){
-       MineralMedia mineralMedia= mineralMediaMapper.FindMediaById(id);
-       if(mineralMedia==null){
-           System.out.println("no media");
-       }
-       return mineralMedia;
-   }
+//   public MineralMedia GetMediaById(int id){
+//       MineralMedia mineralMedia= mineralMediaMapper.FindMediaById(id);
+//       if(mineralMedia==null){
+//           System.out.println("no media");
+//       }
+//       return mineralMedia;
+//   }
 
-   public List GetPicAMedia(int id){
-       List<PicAMedia> result=new LinkedList();
-       MineralPic mineralPics=mineralPicMapper.FindPicById(id);
-       MineralMedia mineralMedia=mineralMediaMapper.FindMediaById(id);
-       PicAMedia picAMedia=new PicAMedia();
-       picAMedia.setMineralid(id);
-       picAMedia.setName(mineralMedia.getName());
-       picAMedia.setPic1(mineralPics.getPic1());
-       picAMedia.setPic2(mineralPics.getPic2());
-       picAMedia.setMediadan(mineralMedia.getMediadan());
-       picAMedia.setMediashi(mineralMedia.getMediashi());
-       picAMedia.setMediayun(mineralMedia.getMediayun());
-       picAMedia.setMediazheng(mineralMedia.getMediazheng());
-       result.add(picAMedia);
-       return result;
-
-   }
-
+//   public List GetPicAMedia(int id){
+//       List<PicAMedia> result=new LinkedList();
+//       MineralPic mineralPics=mineralPicMapper.FindPicById(id);
+//       MineralMedia mineralMedia=mineralMediaMapper.FindMediaById(id);
+//       PicAMedia picAMedia=new PicAMedia();
+//       picAMedia.setMineralid(id);
+//       picAMedia.setName(mineralMedia.getName());
+//       picAMedia.setPic1(mineralPics.getPic1());
+//       picAMedia.setPic2(mineralPics.getPic2());
+//       picAMedia.setMediadan(mineralMedia.getMediadan());
+//       picAMedia.setMediashi(mineralMedia.getMediashi());
+//       picAMedia.setMediayun(mineralMedia.getMediayun());
+//       picAMedia.setMediazheng(mineralMedia.getMediazheng());
+//       result.add(picAMedia);
+//       return result;
+//
+//   }
+//
 
 
 

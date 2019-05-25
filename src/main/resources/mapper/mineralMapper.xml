@@ -55,6 +55,18 @@
 
   </select>
 
+  <select id="FindByCases" parameterType="com.example.demo.entity.Mineral" resultType="com.example.demo.entity.Mineral">
+    select * from Mineral
+    where 1=1
+    <if test="jieli!=null">
+      and jieli=#{jieli}
+    </if>
+    <if test="tuqi!=null">
+      and tuqi=#{tuqi}
+    </if>
+    ;
+  </select>
+
 
 
 

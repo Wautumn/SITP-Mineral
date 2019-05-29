@@ -1,43 +1,43 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.example.demo.dao.MineralMapper" >
-  <resultMap id="BaseResultMap" type="com.example.demo.entity.Mineral" >
-    <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="name" property="name" jdbcType="VARCHAR" />
-    <result column="axiality" property="axiality" jdbcType="VARCHAR" />
-    <result column="type" property="type" jdbcType="VARCHAR" />
-    <result column="form" property="form" jdbcType="VARCHAR" />
-    <result column="handspecolor" property="handspecolor" jdbcType="VARCHAR" />
-    <result column="slicecolor" property="slicecolor" jdbcType="VARCHAR" />
-    <result column="jieli" property="jieli" jdbcType="VARCHAR" />
-    <result column="tuqi" property="tuqi" jdbcType="VARCHAR" />
-    <result column="colorganshe" property="colorganshe" jdbcType="VARCHAR" />
-    <result column="xiaoguang" property="xiaoguang" jdbcType="VARCHAR" />
-    <result column="shuangjin" property="shuangjing" jdbcType="VARCHAR" />
-    <result column="guangxing" property="guangxing" jdbcType="VARCHAR" />
-  </resultMap>
+<mapper namespace="com.example.demo.dao.MineralMapper">
+    <resultMap id="BaseResultMap" type="com.example.demo.entity.Mineral">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="axiality" property="axiality" jdbcType="VARCHAR"/>
+        <result column="type" property="type" jdbcType="VARCHAR"/>
+        <result column="form" property="form" jdbcType="VARCHAR"/>
+        <result column="handspecolor" property="handspecolor" jdbcType="VARCHAR"/>
+        <result column="slicecolor" property="slicecolor" jdbcType="VARCHAR"/>
+        <result column="jieli" property="jieli" jdbcType="VARCHAR"/>
+        <result column="tuqi" property="tuqi" jdbcType="VARCHAR"/>
+        <result column="colorganshe" property="colorganshe" jdbcType="VARCHAR"/>
+        <result column="xiaoguang" property="xiaoguang" jdbcType="VARCHAR"/>
+        <result column="shuangjin" property="shuangjing" jdbcType="VARCHAR"/>
+        <result column="guangxing" property="guangxing" jdbcType="VARCHAR"/>
+    </resultMap>
 
 
-  <select id="FindByName" parameterType="String" resultType="com.example.demo.entity.Mineral">
+    <select id="FindByName" parameterType="String" resultType="com.example.demo.entity.Mineral">
   select *
   from Mineral
   where name like "%"#{name}"%"
   </select>
 
-  <select id="FindById" parameterType="Integer" resultType="com.example.demo.entity.Mineral">
+    <select id="FindById" parameterType="Integer" resultType="com.example.demo.entity.Mineral">
   select *
   from Mineral
   where id=#{id}
   </select>
 
 
-  <select id="FindByType" parameterType="String" resultType="com.example.demo.entity.Mineral">
+    <select id="FindByType" parameterType="String" resultType="com.example.demo.entity.Mineral">
   select *
   from Mineral
   where type like "%"#{type}"%"
   </select>
 
-  <select id="FindByKeyword" parameterType="String" resultType="com.example.demo.entity.Mineral">
+    <select id="FindByKeyword" parameterType="String" resultType="com.example.demo.entity.Mineral">
   select *
   from Mineral
   where name like "%"#{keyword}"%"
@@ -55,20 +55,45 @@
 
   </select>
 
-  <select id="FindByCases" parameterType="com.example.demo.entity.Mineral" resultType="com.example.demo.entity.Mineral">
-    select * from Mineral
-    where 1=1
-    <if test="jieli!=null">
-      and jieli=#{jieli}
-    </if>
-    <if test="tuqi!=null">
-      and tuqi=#{tuqi}
-    </if>
-    ;
-  </select>
+    <select id="FindByCases" parameterType="com.example.demo.entity.Mineral" resultType="com.example.demo.entity.Mineral">
+        select * from Mineral
+        where 1=1
+        <if test="axiality!=null">
+            and axiality like "%"#{axiality}"%"
+        </if>
+        <if test="type!=null">
+            and type like "%"#{type}"%"
+        </if>
+        <if test="form!=null">
+            and form like "%"#{form}"%"
+        </if>
+        <if test="handspecolor!=null">
+            and handspecolor like "%"#{handspecolor}"%"
+        </if>
+        <if test="slicecolor!=null">
+            and slicecolor like "%"#{slicecolor}"%"
+        </if>
+        <if test="jieli!=null">
+            and jieli like "%"#{jieli}"%"
+        </if>
+        <if test="tuqi!=null">
+            and tuqi like "%"#{tuqi}"%"
+        </if>
+        <if test="colorganshe!=null">
+            and colorganshe like "%"#{colorganshe}"%"
+        </if>
+        <if test="xiaoguang!=null">
+            and xiaoguang like "%"#{xiaoguang}"%"
+        </if>
+        <if test="shuangjin!=null">
+            and shuangjin like "%"#{shuangjin}"%"
+        </if>
+        <if test="guangxing!=null">
+            and guangxing like "%"#{guangxing}"%"
+        </if>
 
-
-
+        ;
+    </select>
 
 
 </mapper>

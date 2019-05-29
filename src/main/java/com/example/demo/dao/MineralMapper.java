@@ -3,9 +3,6 @@ package com.example.demo.dao;
 import com.example.demo.entity.Mineral;
 import com.example.demo.entity.SuggestForm;
 import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Select;
-import org.springframework.data.jpa.domain.Specification;
-import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Component;
 
 import javax.validation.constraints.Min;
@@ -22,7 +19,7 @@ public interface MineralMapper {
 
     List<Mineral> FindByType(String type);
     
-    List FindByCases(Mineral mineral);
+    List<Mineral> FindByCases(Mineral mineral);
 
 
 
